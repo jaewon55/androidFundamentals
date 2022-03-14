@@ -22,6 +22,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.marsrealestate.network.MarsApi
+import com.example.android.marsrealestate.network.MarsApiFilter
 import com.example.android.marsrealestate.network.MarsProperty
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -35,12 +36,10 @@ enum class MarsApiStatus { LOADING, ERROR, DONE }
  */
 class OverviewViewModel : ViewModel() {
 
-//    // The internal MutableLiveData String that stores the most recent response
-//    private val _response = MutableLiveData<String>()
-//
-//    // The external immutable LiveData for the response String
-//    val response: LiveData<String>
-//        get() = _response
+    // The internal MutableLiveData String that stores the most recent response
+
+    // The external immutable LiveData for the response String
+
 
     private val _properties = MutableLiveData<List<MarsProperty>>()
 
@@ -52,22 +51,26 @@ class OverviewViewModel : ViewModel() {
     val status: LiveData<MarsApiStatus>
         get() = _status
 
+    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+    val navigateToSelectedProperty: LiveData<MarsProperty>
+        get() = _navigateToSelectedProperty
 
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
     init {
-        getMarsRealEstateProperties()
+        getMarsRealEstateProperties(MarsApiFilter.SHOW_ALL)
     }
 
     /**
      * Sets the value of the status LiveData to the Mars API status.
      */
 
-    private fun getMarsRealEstateProperties() {
+    private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
         viewModelScope.launch {
+            _status.value = MarsApiStatus.LOADING
             try {
-                _properties.value = MarsApi.retrofitService.getProperties()
+                _properties.value = MarsApi.retrofitService.getProperties(filter.value)
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR
@@ -76,30 +79,15 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
-//    private fun getMarsRealEstateProperties() {
-//        MarsApi.retrofitService.getProperties().enqueue(
-//            object: Callback<List<MarsProperty>> {
-//                override fun onResponse(call: Call<List<MarsProperty>>, response: Response<List<MarsProperty>>) {
-//                    _response.value =
-//                        "Success: ${response.body()?.size} Mars properties retrieved"
-//                }
-//
-//                override fun onFailure(call: Call<List<MarsProperty>>, t: Throwable) {
-//                    _response.value = "Failure: " + t.message
-//                }
-//            })
-//    }
-//
-//    private fun getMarsRealEstateProperties() {
-//        MarsApi.retrofitService.getProperties().enqueue(
-//            object: Callback<String> {
-//                override fun onResponse(call: Call<String>, response: Response<String>) {
-//                    _response.value = response.body()
-//                }
-//
-//                override fun onFailure(call: Call<String>, t: Throwable) {
-//                    _response.value = "Failure: " + t.message
-//                }
-//            })
-//    }
+    fun updateFilter(filter: MarsApiFilter) {
+        getMarsRealEstateProperties(filter)
+    }
+
+    fun displayPropertyDetails(marsProperty: MarsProperty) {
+        _navigateToSelectedProperty.value = marsProperty
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
+    }
 }
