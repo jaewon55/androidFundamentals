@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "/Users/jaewon/.gradle/caches/transforms-2/files-2.1/ce34a74cc9154dd83a193d9e5a080818/appcompat-1.2.0/res/values-zh-rCN/values-zh-rCN.xml",

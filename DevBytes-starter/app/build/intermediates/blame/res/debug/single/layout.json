@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/devbyte_item.xml",
-        "source": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/src/main/res/layout/devbyte_item.xml"
+        "merged": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/devbyte_item.xml",
+        "source": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/src/main/res/layout/devbyte_item.xml"
     },
     {
-        "merged": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_dev_byte.xml",
-        "source": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/src/main/res/layout/fragment_dev_byte.xml"
+        "merged": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_dev_byte.xml",
+        "source": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/src/main/res/layout/fragment_dev_byte.xml"
     }
 ]

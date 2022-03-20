@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/jaewon/AndroidStudioProjects/android_funda/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-az/values-az.xml",
+            "outputFile": "/Users/jaewon/AndroidStudioProjects/android_funda/github/DevBytes-starter/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-az/values-az.xml",
             "map": [
                 {
                     "source": "/Users/jaewon/.gradle/caches/transforms-2/files-2.1/6e4690b378ccf7cde2bac783e0ab6ae3/navigation-ui-2.0.0/res/values-az/values-az.xml",
